@@ -1,3 +1,8 @@
+## Why Dogen - "Oneness of Scaffolding"
+**dogen** is meant to be the scaffold-on-the-fly tool.  
+Sometimes, there's a need to copy & paste & change group of files (aka Modules).
+Currently, tools like <yeoman.io> provide impressive scaffold utilities, but sometimes there's a need to update the generators according to your project's guidelines - That's why I created [dogen](https://en.wikipedia.org/wiki/D%C5%8Dgen).
+
 ## Install
 
 ```sh
