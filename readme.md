@@ -45,3 +45,4 @@ The examples directory includes a template of *endpoint*.
 ## License
 
 MIT © [orizens](https://github.com/orizens)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/orizens/gulp-dogen/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
