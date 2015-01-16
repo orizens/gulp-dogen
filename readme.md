@@ -13,6 +13,7 @@ var dogen = require('gulp-dogen');
 
 dogen.config({
 	templatesPath: 'gulp/templates',
+	gulp: gulp
 });
 
 // This will create gulp tasks as:
@@ -30,7 +31,7 @@ The examples directory includes a template of *endpoint*.
 2. *task* -
 	1. *name-of-flag* - the name of the flag to be used in the command line and also the string that will be replaced in the template's files.
 	2. *destination* - the destination path that will be used to place the newly created files
-	
+
 ### dogen(options)
 
 #### options
