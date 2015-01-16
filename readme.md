@@ -41,6 +41,7 @@ The examples directory includes a template of *endpoint*.
 	2. *destination* - the destination path that will be used to place the newly created files
 
 ### dogen(options)
+The concept of simplicity in dogen is that you should put the **name-of-flag** anywhere in the file's & directories names and contents - so it will be replaced with the value of **the-name-to-be-scaffolded**.
 
 #### options
 
