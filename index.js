@@ -30,13 +30,13 @@ function task (placeholder, destination) {
 			gulpTaskCreated = true;
 			// this function should run once because it iterates on the flags
 			// the 'dogen' task gets and runs the appropriate the generator
-			createDogenGulpTask();
+			return createDogenGulpTask();
 		}
 	}
 }
 
 function createDogenGulpTask () {
-	_gulp.task('dogen', function(){
+	return _gulp.task('dogen', function(){
 		generators.forEach(function(task){
 			var placeholder = task[0];
 			var placeholderValue = argv[task[0]];
