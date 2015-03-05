@@ -55,7 +55,8 @@ The examples directory includes a template of *endpoint*.
 The concept of simplicity in dogen is that you should put the **name-of-flag** anywhere in the file's & directories names and contents - so it will be replaced with the value of **the-name-to-be-scaffolded**.
 
 #### options
-**dogen** task method return a **gulp** task that can be used like a standard gulp task.
+**dogen** task method return a **gulp** task that can be used like a standard gulp task.  
+```gulp dogen --list``` displays all the localy available generators in the console.
 
 ## License
 

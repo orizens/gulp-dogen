@@ -1,6 +1,6 @@
 {
   "name": "gulp-dogen",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "a fast & easy scaffold cli for any development (based on gulp) ",
   "license": "MIT",
   "repository": "orizens/gulp-dogen",
@@ -12,9 +12,7 @@
   "engines": {
     "node": ">=0.10.0"
   },
-  "scripts": {
-    
-  },
+  "scripts": {},
   "files": [
     "index.js"
   ],
