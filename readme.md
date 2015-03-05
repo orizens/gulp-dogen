@@ -42,6 +42,14 @@ This task will do the following:
 1. copy the "endpoint" directory from the "examples" directory to destination 'src/server/api'
 2. replace every instance of the word "endpoint" with "guitars" - in both file names & file contents
 
+### One More Destination Path  
+Sometimes, a sub destination path is required under the destination that was configured in the **task** function.  
+The dogen shell task can have a 2nd argument, **"path"** which will be concatenated as a suffix to the destination value of the task.  
+The following task:  
+```gulp dogen --endpoint guitars --path music```  
+places the new generated files/directories at: **src/client/api/music**.
+Please note: the **path** value can be any nested path including several directories.
+
 The examples directory includes a template of *endpoint*.
 
 ## API
