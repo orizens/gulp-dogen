@@ -14,8 +14,6 @@ var generators = [['list', '']];
 var templatesPath = './';
 var gulpTaskCreated = false;
 
-module.exports = api;
-
 function config (options) {
 	if (!options.templatesPath || !options.gulp) {
 		console.log('templatesPath or gulp parameters not set in config correctly.');
@@ -39,19 +37,21 @@ function task (placeholder, destination) {
 
 function createDogenGulpTask () {
 	_gulp.task('dogen', function(){
+		var placeholderValue = argv[task[0]];
+		var path = argv.path;
+
+		if (argv.list) {
+			listGeneratorsToConsole();
+			return;
+		}
+
 		generators.forEach(function(task){
 			var placeholder = task[0];
-			var placeholderValue = argv[task[0]];
 			var destination = task[1];
-			var path = argv.path;
 			if (path !== undefined) {
 				destination += path + '/';
 			}
 
-			if (placeholder === 'list') {
-				listGeneratorsToConsole();
-				return;
-			}
 
 			if (placeholderValue !== undefined) {
 				return creator('_' + placeholder + '_', placeholderValue, destination);
@@ -81,3 +81,4 @@ function listGeneratorsToConsole () {
 	console.log('\navailable dogen tasks:\n');
 	console.log(list.join('\n'), '\n');
 }
+module.exports = api;
