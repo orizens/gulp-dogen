@@ -6,8 +6,8 @@ Currently, tools like [yeoman](http://yeoman.io) provide impressive scaffold uti
 You're relied on the generator's author or creating your own.  
 That's why I created [dogen](https://en.wikipedia.org/wiki/D%C5%8Dgen).
 
-Be The Master of you own generators.
-[zen enso](https://upload.wikimedia.org/wikipedia/commons/f/f1/Enso.jpg)
+Be The Master of you own generators.  
+[zen enso](images/enso.jpg)
 
 ## Install
 
