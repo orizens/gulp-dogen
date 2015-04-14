@@ -37,7 +37,12 @@ function task (placeholder, destination) {
 
 function createDogenGulpTask () {
 	_gulp.task('dogen', function(){
-		var placeholderValue = argv[task[0]];
+		var excludeKeys = '_$0';
+		var args = Object.keys(argv).filter(function (key) {
+			return excludeKeys.indexOf(key) === -1;
+		});
+
+		var placeholderValue = argv[args[0]];
 		var path = argv.path;
 
 		if (argv.list) {
