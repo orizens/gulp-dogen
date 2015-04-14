@@ -41,8 +41,8 @@ function createDogenGulpTask () {
 		var args = Object.keys(argv).filter(function (key) {
 			return excludeKeys.indexOf(key) === -1;
 		});
-
-		var placeholderValue = argv[args[0]];
+		var placeholderKey = args[0];
+		var placeholderValue = argv[placeholderKey];
 		var path = argv.path;
 
 		if (argv.list) {
@@ -56,9 +56,7 @@ function createDogenGulpTask () {
 			if (path !== undefined) {
 				destination += path + '/';
 			}
-
-
-			if (placeholderValue !== undefined) {
+			if (placeholderValue !== undefined && placeholderKey === placeholder) {
 				return creator('_' + placeholder + '_', placeholderValue, destination);
 			}
 		});
