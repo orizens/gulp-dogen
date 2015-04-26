@@ -1,3 +1,5 @@
+[![Dependency Status](https://david-dm.org/orizens/gulp-dogen.svg)](https://david-dm.org/orizens/gulp-dogen)  
+
 ## Why Dogen - "Oneness of Scaffolding"
 **dogen** is meant to be the scaffold-on-the-fly tool.  
 Creating templates of files & directories of files for scaffolding should be easy.  
