@@ -57,22 +57,27 @@ function createDogenGulpTask () {
 				destination += path + '/';
 			}
 			if (placeholderValue !== undefined && placeholderKey === placeholder) {
-				return creator('_' + placeholder + '_', placeholderValue, destination);
+				return creator(placeholder, placeholderValue, destination);
 			}
 		});
 	});
 }
 
 function creator (placeholder, placeholderValue, dest) {
-	var re = new RegExp('(' + placeholder + ')', 'gm');
-	console.log('Creating', placeholder.replace(/_/g, ''), ':', placeholderValue, 'in', dest);
-	return _gulp.src(templatesPath + placeholder + '/**/*')
+	var templatePlaceholder = '_' + placeholder + '_';
+	var reNormal = new RegExp('(' + templatePlaceholder + ')', 'gm');
+	var reCamelCase = new RegExp('(=' + placeholder + '=)', 'gm');
+	var placeholderValueCamelCase = toCamelCase(placeholderValue);
+	console.log('Creating', placeholder, ':', placeholderValue, 'in', dest);
+
+	return _gulp.src(templatesPath + templatePlaceholder + '/**/*')
 		.pipe(rename(function (path) {
-			if (path.basename.indexOf(placeholder) > -1){
-				path.basename = path.basename.replace(placeholder, placeholderValue);
+			if (path.basename.indexOf(templatePlaceholder) > -1){
+				path.basename = path.basename.replace(templatePlaceholder, placeholderValue);
 			}
 		}))
-		.pipe(replace(re, placeholderValue))
+		.pipe(replace(reNormal, placeholderValue))
+		.pipe(replace(reCamelCase, placeholderValueCamelCase))
 		.pipe(_gulp.dest(dest + placeholderValue));
 }
 
@@ -83,5 +88,12 @@ function listGeneratorsToConsole () {
 	list.shift();
 	console.log('\navailable dogen tasks:\n');
 	console.log(list.join('\n'), '\n');
+}
+
+function toCamelCase (selector) {
+    var converted = selector
+        .replace(/-([a-z])/g, function (g) { return g[1].toUpperCase(); })
+        .replace(/^[a-z]/g, function (g) { return g.toUpperCase(); })
+        .replace(/\[|]/g, "");
 }
 module.exports = api;

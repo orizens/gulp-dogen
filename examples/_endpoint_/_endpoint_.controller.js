@@ -1,14 +1,14 @@
 var _ = require('lodash');
 var rest = require('restler');
 var restUrl = config.restUrl + '/_endpoint_';
-
+var =endpoint=; // this will be converted to camelCase
 exports.index = get;
 exports.create = create;
 exports.update = update;
 
 function get (req, res) {
 	rest.get(restUrl).on('complete', handleGet);
-	
+
 	function handleGet (response){
 		res.json(response._endpoint_);
 	}
