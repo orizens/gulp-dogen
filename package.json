@@ -1,6 +1,6 @@
 {
   "name": "gulp-dogen",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "a fast & easy scaffold cli for any development (based on gulp) ",
   "license": "MIT",
   "repository": "orizens/gulp-dogen",
