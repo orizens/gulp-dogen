@@ -3,6 +3,7 @@ var gulp = require('gulp');
 var argv = require('yargs').argv;
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
+var camel = require('to-camel-case');
 var _gulp;
 
 var api = {
@@ -67,7 +68,7 @@ function creator (placeholder, placeholderValue, dest) {
 	var templatePlaceholder = '_' + placeholder + '_';
 	var reNormal = new RegExp('(' + templatePlaceholder + ')', 'gm');
 	var reCamelCase = new RegExp('(=' + placeholder + '=)', 'gm');
-	var placeholderValueCamelCase = toCamelCase(placeholderValue);
+	var placeholderValueCamelCase = camel(placeholderValue);
 	console.log('Creating', placeholder, ':', placeholderValue, 'in', dest);
 
 	return _gulp.src(templatesPath + templatePlaceholder + '/**/*')
@@ -88,12 +89,5 @@ function listGeneratorsToConsole () {
 	list.shift();
 	console.log('\navailable dogen tasks:\n');
 	console.log(list.join('\n'), '\n');
-}
-
-function toCamelCase (selector) {
-    return selector
-        .replace(/-([a-z])/g, function (g) { return g[1].toUpperCase(); })
-        .replace(/^[a-z]/g, function (g) { return g.toUpperCase(); })
-        .replace(/\[|]/g, "");
 }
 module.exports = api;
