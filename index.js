@@ -4,6 +4,7 @@ var argv = require('yargs').argv;
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 var camel = require('to-camel-case');
+var fs = require('fs');
 var _gulp;
 
 var api = {
@@ -70,6 +71,14 @@ function creator (placeholder, placeholderValue, dest) {
 	var reCamelCase = new RegExp('(=' + placeholder + '=)', 'gm');
 	var placeholderValueCamelCase = camel(placeholderValue);
 	console.log('Creating', placeholder, ':', placeholderValue, 'in', dest);
+
+	fs.exists(templatesPath + templatePlaceholder +'/', function(exists) {		
+		if(exists){
+			console.log('Files to template located at: ' + templatesPath + templatePlaceholder +'/');
+		}else{
+			console.log('\x1b[31m', 'Template files not found!');
+		}
+	});
 
 	return _gulp.src(templatesPath + templatePlaceholder + '/**/*')
 		.pipe(rename(function (path) {
