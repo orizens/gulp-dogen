@@ -65,6 +65,7 @@ The examples directory includes a template of *endpoint*.
 **dogen** relies on 2 simple variables:  
 1. "_variable_" - surrounded with underscore, "_", this variable will be replaced with the value of "the-name-to-be-scaffolded".  
 2. "=variable=" - surrounded with equals operator, "=", this variable will be "camel-cased" (any hypens will be dropped) and then replaced with the value of "the-name-to-be-scaffolded".  
+3. "#variable#" - surrounded with equals operator, "#", this variable will be "capitalized" (any hypens will be dropped) and then replaced with the value of "the-name-to-be-scaffolded". 
 
 ### dogen(options)
 The concept of simplicity in dogen is that you should put the **name-of-flag** anywhere in the file's & directories names and contents - so it will be replaced with the value of **the-name-to-be-scaffolded**.
