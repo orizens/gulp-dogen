@@ -4,6 +4,7 @@ var argv = require('yargs').argv;
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 var camel = require('to-camel-case');
+var capitalize = require('capitalize');
 var _gulp;
 
 var api = {
@@ -69,6 +70,8 @@ function creator (placeholder, placeholderValue, dest) {
 	var reNormal = new RegExp('(' + templatePlaceholder + ')', 'gm');
 	var reCamelCase = new RegExp('(=' + placeholder + '=)', 'gm');
 	var placeholderValueCamelCase = camel(placeholderValue);
+	var reCapitalize = new RegExp('(#' + placeholder + '#)', 'gm');
+	var placeholderValueCapitalize = capitalize(placeholderValue);
 	console.log('Creating', placeholder, ':', placeholderValue, 'in', dest);
 
 	return _gulp.src(templatesPath + templatePlaceholder + '/**/*')
@@ -79,6 +82,7 @@ function creator (placeholder, placeholderValue, dest) {
 		}))
 		.pipe(replace(reNormal, placeholderValue))
 		.pipe(replace(reCamelCase, placeholderValueCamelCase))
+		.pipe(replace(reCapitalize, placeholderValueCapitalize))
 		.pipe(_gulp.dest(dest + placeholderValue));
 }
 
